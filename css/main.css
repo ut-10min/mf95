@@ -219,9 +219,10 @@ body {
 .time-table {
   margin-left: 10px; }
   .time-table td.title {
-    padding-left: 10px; }
+    padding-left: 10px;}
   .time-table td.name {
-    padding-left: 10px; }
+    padding-left: 10px; 
+    min-width: 100px; }
 
 /*# sourceMappingURL=main.css.map */
 #article-us {
