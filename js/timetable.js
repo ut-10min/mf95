@@ -41,7 +41,7 @@ function construstTimeTable(timeTable, talksData) {
 
       ) {
         return { time: time, name: talk.affiliation, 
-          title: talk.title + "：" + talk.name, 
+          title: talk.title + "：<br />" + talk.name, 
           major: "" };
       }
       //else if (name == "第1部講演の録画を放映予定") {

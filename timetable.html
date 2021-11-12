@@ -41,14 +41,14 @@
     </script>
 
     <!-- user script -->
-    <script src="js/timetable.js?202111121718"></script>
+    <script src="js/timetable.js?202111121900"></script>
     <script id="template" type="x-tmpl-mustache">
 <h3>{{header}}</h3>
 <table class=time-table>
 {{#table}}
 <tr>
 <td class=time>{{time}}</td>
-<td class=title>{{title}}</td>
+<td class=title>{{{title}}}</td> <!-- changed {{ to {{{ -->
 <td class=name>{{name}}</td>
 </tr>
 {{/table}}
