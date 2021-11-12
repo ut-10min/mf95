@@ -1,4 +1,4 @@
-function constructTimeTable(timeTable, talksData) {
+function construstTimeTable(timeTable, talksData) {
   return Object.keys(timeTable)
                .filter(function (k) {return timeTable[k];})
                .sort()
@@ -15,30 +15,42 @@ function constructTimeTable(timeTable, talksData) {
                  //   name = "宇佐美こすも";
                  // }
                  var talk = talksData.filter(function (t) { return t.name.indexOf(name) == 0; })[index];
-
-                  if ((time == "16:05") || (time == "16:25")) {
-                    return { time: "\xa0", name: "\xa0", title: "", major: ""};
-                  }
-                  else if (name == "一部講演の録画を放映する予定です") {
-                    return { time: time, name: "", title: name, major: ""};
-                  }
-                  else {
-                    return { time: time, name: talk.name, title: talk.title, major: talk.affiliation };
-                  }
+                 if (
+                   (time == "09:50") || 
+                   (time == "12:30") || 
+                   (time == "14:50") ||
+                   (time == "16:09") ||
+                   (time == "16:29")    
+                 ) 
+                 {
+                   return { time: name, name: "", title: "", major: ""};
+                 } 
+                 else if (name == "休憩（座談会）") {
+                   return { time: time, name: "", title: name, major: ""};
+                 }
+                 if (name == "改行") {
+                   return { time: "\xa0", name: "\xa0", title: "", major: ""};
+                 }
+                 else if (name == "第1部講演の録画を放映予定") {
+                   return { time: time, name: "", title: name, major: ""};
+                 }
+                 else {
+                   return { time: time, name: talk.name, title: talk.title, major: talk.affiliation };
+                 }
                });
 }
 
 
 $(function () {
-  var firstDayTable = constructTimeTable(day1, data);
-  var secondDayTable = constructTimeTable(day2, data);
-  var thirdDayTable = constructTimeTable(day3, data);
+  var firstDayTable = construstTimeTable(day1, data);
+  var secondDayTable = construstTimeTable(day2, data);
+  // var thirdDayTable = construstTimeTable(day3, data);
 
   var template = $('#template').html();
   Mustache.parse(template);
-  var renderedFirst = Mustache.render(template, {table: firstDayTable, header: "11/21 (日)"});
-  var renderedSecond = Mustache.render(template, {table: secondDayTable, header: "11/22 (月)"});
-  var renderedThird = Mustache.render(template, {table: thirdDayTable, header: "11/23 (火)"});
-  $('.article-headline').html(renderedFirst + "<br />" + renderedSecond + "<br />" + renderedThird);
-  //$('.article-headline').html(renderedFirst + "<br />" + renderedSecond);
+  var renderedFirst = Mustache.render(template, {table: firstDayTable, header: "9/19 (日)"});
+  var renderedSecond = Mustache.render(template, {table: secondDayTable, header: "9/20 (月・祝)"});
+  // var renderedThird = Mustache.render(template, {table: thirdDayTable, header: "11/25(日)"});
+  // $('.article-headline').html(renderedFirst + "<br />" + renderedSecond + "<br />" + renderedThird);
+  $('.article-headline').html(renderedFirst + "<br />" + renderedSecond);
 });
