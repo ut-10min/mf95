@@ -28,6 +28,23 @@ function construstTimeTable(timeTable, talksData) {
       else if (name == "改行") {
         return { time: "\xa0", name: "\xa0", title: "", major: ""};
       }
+      else if (
+        (name == "研究テーマってどうやって決める？") ||
+        (name == "私の大学院生としての生活、研究以外何してる？") ||
+        (name == "当たり前だったと思っていたが、他分野の人と接することでそうではないと気付いたこと") ||
+        (name == "東大の大学院生の生活スタイル") ||
+        (name == "コロナ禍で研究のやり方はどう変わった？") ||
+        (name == "「勉強」と「研究」の割合(体感)について。研究テーマの決め方。") ||
+        (name == "大学ではやたらハエの研究が多いが、虫が苦手だったり、研究室志望が思うようにならなかった等の人たちの行く末は？") ||
+        (name == "Coming soon") ||
+        (name == "他のラボメンバーとの関わり（自分はn人でnテーマを一緒にやっているような感じで、特殊な方なのかな？と思ったので）") 
+
+      ) {
+        return { time: time, name: talk.affiliation, 
+          title: talk.title + `：
+          ` + talk.name, 
+          major: "" };
+      }
       //else if (name == "第1部講演の録画を放映予定") {
       //  return { time: time, name: "", title: name, major: ""};
       //}
