@@ -40,7 +40,7 @@ function construstTimeTable(timeTable, talksData) {
         (name == "自分のラボの研究はチームプレー？ 個人プレー？ 他のラボメンバーとの関わり") 
 
       ) {
-        return { time: time, name: talk.affiliation, 
+        return { time: time, name: "進行：" + talk.chairperson, 
           title: talk.title + "：<br />" + talk.name, 
           major: "" };
       }

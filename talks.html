@@ -49,7 +49,12 @@
 <dt class=talk-header><span class=title>{{title}}</span>
 <br />
 <span class=name>{{name}}</span>
-<span class=major>({{affiliation}}, 専門:{{major}})</span>
+{{#major}}
+<span class=major>（{{affiliation}}｜専門：{{major}}）</span>
+{{/major}}
+{{#chairperson}}
+<span class=major>（進行：{{chairperson}}）</span>
+{{/chairperson}}
 </dt>
 <dd class=talk-abs>{{abstract}}<br>{{info}}</dd>
 {{/talks}}
